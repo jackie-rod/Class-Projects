@@ -1,0 +1,34 @@
+Please answer the following questions to explain your implementation (Directly write your answer below the questions).
+
+
+1) In your implementation, please describe your strategy/design to count the special words using multiple threads.
+To get the required results, I created a list of all files in the selected directory with their full paths. Once the range of each thread
+was determined in the thread function, the threads processed each file one by one, each announcing their status in the procedure. A semaphore
+was used while each file was being processed in each thread.
+
+
+2) In your implementation, please describe how you keep the specialfreq[ ] always having the up-to-date count.
+I did not keep specialfreq[] up-to-date the entire time. Because specialfreq[] was constrained to the specialcountmulthreads function context,
+I created a global 2d array called sf[][]. The threads updated the global specialfreq when processing each file. Before writing to the output
+file the program updates specialfreq with all the elements of sf[][]. Therefore the program can still print the correct count without keeping
+specialfreq[] up to date.
+
+3) Please measure the total time cost of special word count uisng your program. Please repeat at least three times and write down your time below.
+        compilation 1)
+            real -> 1.40 secs
+            sys -> 0.74 secs
+            usr -> 2.78 secs
+        compilation 2)
+            real -> 1.38 secs
+            sys -> 0.53 secs
+            usr -> 2.82 secs
+        compilation 3)
+            real -> 1.38 secs
+            sys -> 0.85 secs
+            usr -> 2.57 secs
+
+4) Can you think of any other improvement in your implementation to speedup the special word count? If no, please briefly justify why you think your design is the best.
+ There are several ways I could have improved the performance of this program. I could have implemented a struct for all of the thread
+ variables that I needed to be streamlined. Using a struct instead of globals would have been a safer option for the memory. I could have also made
+ specialfreq[] a pointer so that I could directly added to the array instead of creating a global array and copying the elements. This would have been a
+ far more efficient way to keep track of specialfreq[] regardless of the small capacity of elements.
