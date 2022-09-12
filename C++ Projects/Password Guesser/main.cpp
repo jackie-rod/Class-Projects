@@ -1,11 +1,5 @@
 /*
  * The Password Game
- *
- * Dylan James - Section 2
- * Jacqueline Rodriguez - Section 2
- * Vikram Handa - Section 1
- * Ali Hadi - Section 2
- *
  */
 
 #include <iostream>
