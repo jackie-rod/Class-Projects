@@ -1,4 +1,6 @@
 //Author: Jacqueline Rodriguez
+//CS Programming Languages Class Project
+//Demonstrating C++
 //Section 2
 //Metal Head Program
 
